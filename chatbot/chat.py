@@ -5,7 +5,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 
 from dotenv import load_dotenv
 
-from llm import get_ai_message
+from llm import get_ai_response
 
 
 
@@ -36,9 +36,10 @@ if user_prompt := st.chat_input("Say something"):
         st.write(user_prompt)
     st.session_state.messages.append({"role": "user", "content": user_prompt})
 
-    ai_message = get_ai_message(user_prompt)
+    with st.spinner("답변을 생성하는 중입니다"):
+        ai_response = get_ai_response(user_prompt)
 
-    with st.chat_message("assistant"):
-        st.write(ai_message)
-    st.session_state.messages.append({"role": "assistant", "content": ai_message})
+        with st.chat_message("assistant"):
+            ai_message = st.write_stream(ai_response)
+            st.session_state.messages.append({"role": "assistant", "content": ai_message})
 
