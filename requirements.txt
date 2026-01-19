@@ -1,7 +1,10 @@
 streamlit
-langchain
-langchain-openai
+langchain>=0.1.0
 langchain-community
-langchain-core
+langchain-openai
 langchain-pinecone
+langchain-core
 langchain-text-splitters
+openai
+pinecone-client
+python-dotenv
