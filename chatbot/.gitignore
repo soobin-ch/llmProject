@@ -1,0 +1,4 @@
+**/.env
+chatbot/.env
+.streamlit/
+__pycache__/
