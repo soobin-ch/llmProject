@@ -1,19 +1,16 @@
 import streamlit as st
 
-from langchain.chains.history_aware_retriever import create_history_aware_retriever
-from langchain.chains.retrieval import create_retrieval_chain
-from langchain.chains.combine_documents import create_stuff_documents_chain
 
 from dotenv import load_dotenv
 
-from llm import get_ai_response
+from realestate_llm import get_ai_response
 
 
 
 st.set_page_config(page_title="Chatbot Interface", page_icon="🤖")
 
-st.title("😊 소득세 챗봇")
-st.caption("소득세 관련 질문에 답변해 드립니다.")
+st.title("😊 부동산 챗봇")
+st.caption("부동산 매물 관련 질문에 답변해 드립니다.")
 
 load_dotenv()  # take environment variables from .env file
 
