@@ -25,7 +25,7 @@ def get_session_history(session_id:str) ->BaseChatMessageHistory:
 def get_retrieval():
     model = OpenAIEmbeddings(model="text-embedding-3-large")
 
-    index_name = "tax-markdown-index"
+    index_name = "tax-index"
 
     database = PineconeVectorStore.from_existing_index(index_name=index_name, embedding=model)
 
@@ -151,27 +151,6 @@ def get_ai_response(user_question):
         )
      
     return ai_response
-
-
-"""
-    refined_question = dictionary_chain.invoke({"question": user_question})
-
-    ai_message = rag_chain.invoke(
-        {"input": refined_question},
-        config={"configurable": {"session_id": "abc123"}}
-    )
-
- 
-
-    # 가장 안전하게 답변을 가져오는 방법
-    if isinstance(ai_message, dict):
-        return ai_message.get("answer", ai_message.get("content", "답변을 생성하지 못했습니다."))
-    else:
-        # ai_message 자체가 문자열인 경우 (드문 경우)
-        return ai_message
-
-"""
-
 
 
 
